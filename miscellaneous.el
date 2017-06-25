@@ -26,6 +26,22 @@ Example: (misc--pad 5 \"Hi!\") => \"  Hi!\""
   (declare (pure t) (side-effect-free t))
   (format (concat "%" (number-to-string W) "s") S))
 
+  (defun misc--alternate (L1 L2)
+    "Create a list that alternates the elements of L1 and L2."
+    (cl-loop
+     for e1 in L1 and e2 in L2
+     append (list e1 e2)))
+
+;;; Numbers:
+
+  (defun misc--digits (N)
+    "Number -> Integer
+The number of decimal digits of N, including any period as a digit.
+
+Example: (misc--digits 10.7) => 4"
+    (declare (pure t) (side-effect-free t))
+    (length (number-to-string N)))
+
 ;;; Key maps
 
 (defun misc--def-keys (MAP &rest BINDINGS)
