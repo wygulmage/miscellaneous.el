@@ -1,9 +1,6 @@
 ;;; miscellaneous.el --- random crap that belongs somewhere else -*- lexical-binding: t -*-
 
-;;; Some convenience functions that don't belong here but I don' have a better place to put them.
-(eval-when-compile
-  (require 'cl-loop))
-(require 'seq)
+;;; Some convenience functions that don't belong here but I don't have a better place to put them.
 
 (defun misc--princ (OBJECT &optional PRINT-CHAR-FUNCTION)
   "`princ' but does not print the colon of a keyword"
