@@ -1,6 +1,9 @@
 ;;; miscellaneous.el --- random crap that belongs somewhere else -*- lexical-binding: t -*-
 
 ;;; Some convenience functions that don't belong here but I don't have a better place to put them.
+(eval-when-compile
+  (require 'cl-macs))
+(require 'seq)
 
 (defun misc--princ (OBJECT &optional PRINT-CHAR-FUNCTION)
   "`princ' but does not print the colon of a keyword"
@@ -26,21 +29,21 @@ Example: (misc--pad 5 \"Hi!\") => \"  Hi!\""
   (declare (pure t) (side-effect-free t))
   (format (concat "%" (number-to-string W) "s") S))
 
-  (defun misc--alternate (L1 L2)
-    "Create a list that alternates the elements of L1 and L2."
-    (cl-loop
-     for e1 in L1 and e2 in L2
-     append (list e1 e2)))
+(defun misc--alternate (LIST1 LIST2)
+  "Create a list that alternates the elements of LIST1 and LIST2."
+  (cl-loop
+   for e1 in LIST1 and e2 in LIST2
+   append (list e1 e2)))
 
 ;;; Numbers:
 
-  (defun misc--digits (N)
-    "Number -> Integer
+(defun misc--digits (N)
+  "Number -> Integer
 The number of decimal digits of N, including any period as a digit.
 
 Example: (misc--digits 10.7) => 4"
-    (declare (pure t) (side-effect-free t))
-    (length (number-to-string N)))
+  (declare (pure t) (side-effect-free t))
+  (length (number-to-string N)))
 
 ;;; Key maps
 
