@@ -23,8 +23,7 @@
 
 (defun misc--pad (W S)
   "Integer -> String -> String
-Pad string S with spaces to width W. A negative width means add the padding on the right.
-
+Pad string S with spaces to width W. A negative width means add the padding on the right.\n
 Example: (misc--pad 5 \"Hi!\") => \"  Hi!\""
   (declare (pure t) (side-effect-free t))
   (format (concat "%" (number-to-string W) "s") S))
@@ -39,8 +38,7 @@ Example: (misc--pad 5 \"Hi!\") => \"  Hi!\""
 
 (defun misc--digits (N)
   "Number -> Integer
-The number of decimal digits of N, including any period as a digit.
-
+The number of decimal digits of N, including any period as a digit.\n
 Example: (misc--digits 10.7) => 4"
   (declare (pure t) (side-effect-free t))
   (length (number-to-string N)))
